@@ -158,7 +158,7 @@ python main.py --test_only
 | Speaker_noCat | 0.719 | 0.690 | 0.704 | 0.751 | 0.827 |
 | Listener_noCat | 0.722 | 0.692 | 0.706 | 0.689 | 0.876 |
 
-#### 3.5 CB Loss ![\lambda=0.9](http://latex.codecogs.com/gif.latex?Concentration%3D%5Cfrac%7BTotalTemplate%7D%7BTotalVolume%7D)
+#### 3.5 CB Loss ![](http://latex.codecogs.com/gif.latex?\lambda=0.9)
 )
 
 | Model | Precision | Recall | F1_emotion | Arousal | Valence | 실험자 |
