@@ -202,8 +202,8 @@ python main.py --test_only
 - JongWoo Kim : gimjongu81@gmail.com
 
 ## Reference
-[1]
+[1] https://github.com/SKTBrain/KoBERT
 </br>
-[2]
+[2] Cui, Yin, et al. "Class-balanced loss based on effective number of samples." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2019.
 </br>
-[3]
+[3] Noh, K.J.; Jeong, C.Y.; Lim, J.; Chung, S.; Kim, G.; Lim, J.M.; Jeong, H. Multi-Path and Group-Loss-Based Network for Speech Emotion Recognition in Multi-Domain Datasets. Sensors 2021, 21, 1579. https://doi.org/10.3390/s21051579
