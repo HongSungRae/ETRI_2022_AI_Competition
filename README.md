@@ -37,6 +37,31 @@
 2. [Google_Drive]()에서 미리 가공된 sentence embedding과 annotation을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요
 
 - 최종적으로 structure가 이렇게 되어있다면 모든 준비가 끝났습니다!
+```
+<2022-휴먼이행-인공지능-경진대회>
+                            ├ <data>
+                                └ <KEMDy19>
+                                    ├ <annotation>
+                                    ├ <ECG>
+                                    ├ <EDA>
+                                    ├ <TEMP>
+                                    ├ <wav>
+                                    ├ annotation.csv
+                                    ├ df_listener.csv
+                                    ├ df_speaker.csv
+                                    └ embedding_768.npy
+                            ├ constants.py
+                            ├ dataset.py
+                            ├ loss.py
+                            ├ main.py
+                            ├ metric.py
+                            ├ model.py
+                            ├ utils.py
+                            ├ EDA.ipynb
+                            ├ prerprocessing.ipynb
+                            ├ LICENSE
+                            └ README.md                           
+```
 
 ### 2.3 학습+추론
 ```
