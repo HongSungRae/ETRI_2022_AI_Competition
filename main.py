@@ -60,7 +60,7 @@ parser.add_argument('--lr_decay', default=1e-3, type=float,
                     help='learning rate decay')
 parser.add_argument('--weight_decay', default=0.00001, type=float,
                     help='weight_decay')
-parser.add_argument('--epochs', default=100, type=int,
+parser.add_argument('--epochs', default=50, type=int,
                     help='train epoch')
 
 # For test
@@ -171,7 +171,10 @@ def test(model, test_loader, save_path):
     # Save result, confusion matrix
     with open(save_path + '/result.json', 'w') as f:
         json.dump(result, f, indent=2)
-    f = open('./exp/'+args.test_path+'/confusion.txt','w')
+    try:
+        f = open('./exp/'+args.test_path+'/confusion.txt','w')
+    except:
+        f = open('./exp/'+args.backbone+'_'+args.SorL+'_'+args.optim+'_'+str(args.ws)+'/confusion.txt','w')
     f.write(str(total_confusion_matrix))
     print(result)
     print(f'Confusion Matrix : \n{total_confusion_matrix}')
