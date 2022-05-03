@@ -17,6 +17,7 @@
 
 ### 1.2 Methodolgy
 #### Model Architecture
+![model_architecture](https://erratic-tailor-f01.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F02e2f67e-59e5-4051-8543-b16a004e4a64%2FUntitled.png?table=block&id=6c9bb92c-881d-49d7-96a7-1ed675230d13&spaceId=ad2a71b5-1b0d-4734-bbc4-60a807442e5d&width=2000&userId=&cache=v2)
 
 #### Audio Spectrogram
 
@@ -175,7 +176,7 @@ python main.py --test_only
 | Listener(![](http://latex.codecogs.com/gif.latex?\beta=0.999)) | 0.698 | 0.669 | 0.682 | 0.741 | 0.868 |
 
 
-### 3.6 (![](http://latex.codecogs.com/gif.latex?\lambda)) 에 따른 baseline ablation study
+### 3.6 ![](http://latex.codecogs.com/gif.latex?\lambda)에 따른 baseline ablation study
 
 | Model | Precision | Recall | F1_emotion | Arousal | Valence |
 | --- | --- | --- | --- | --- | --- |
@@ -192,6 +193,8 @@ python main.py --test_only
 | Listener(![](http://latex.codecogs.com/gif.latex?\lambda=0.8))(4:1:1) | 0.709 | 0.680 | 0.694 | 0.688 | 0.862 |
 
 
+## License & citiation
+
 ## Contact
 - SungRae Hong : sun.hong@kaist.ac.kr
 - TaeMi Kim : taemi_kim@kaist.ac.kr
@@ -200,4 +203,7 @@ python main.py --test_only
 
 ## Reference
 [1]
+</br>
 [2]
+</br>
+[3]
