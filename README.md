@@ -115,7 +115,7 @@ python main.py --test_only
 ```
 
 ## 3. 성능
-#### 3.1 기존 성능[3]
+### 3.1 기존 성능[3]
 
 | Model | Precision | Recall | F1_emotion | Arousal | Valence |
 | --- | --- | --- | --- | --- | --- |
@@ -123,7 +123,7 @@ python main.py --test_only
 | MPSL | 0.591 | - | 0.584 | - | - |
 | MPGL | 0.608 | - | 0.598 | - | - |
 
-#### 3.2 Baseline 성능
+### 3.2 Baseline 성능
 
 | Model | Precision | Recall | F1_emotion | Arousal | Valence |
 | --- | --- | --- | --- | --- | --- |
@@ -141,7 +141,7 @@ python main.py --test_only
 | Listener[13,14,15,16] | 0.744 | 0.713 | 0.728 | 0.756 | 0.865 |
 | Listener[17,18,19,20] | 0.710 | 0.683 | 0.695 | 0.566 | 0.866 |
 
-#### 3.3 양방향 RNN
+### 3.3 양방향 RNN
 - configuration은 모두 default setting
 
 | Model | Precision | Recall | F1_emotion | Arousal | Valence |
@@ -149,7 +149,7 @@ python main.py --test_only
 | Speaker_bi | 0.755 | 0.726 | 0.740 | 0.784 | 0.884 |
 | Listener_bi | 0.741 | 0.710 | 0.725 | 0.711 | 0.880 |
 
-#### 3.4 Emotion 정보를 concat한 것이 도움이 되었을까?
+### 3.4 Emotion 정보를 concat한 것이 도움이 되었을까?
 - configuration은 모두 default setting
 - emotion 정보 concat을 모두 제거 후 실험
 
@@ -158,19 +158,14 @@ python main.py --test_only
 | Speaker_noCat | 0.719 | 0.690 | 0.704 | 0.751 | 0.827 |
 | Listener_noCat | 0.722 | 0.692 | 0.706 | 0.689 | 0.876 |
 
-#### 3.5 CB Loss ![](http://latex.codecogs.com/gif.latex?\lambda=0.9)
-)
+### 3.5 CB Loss when ![](http://latex.codecogs.com/gif.latex?\lambda=0.9)
 
-| Model | Precision | Recall | F1_emotion | Arousal | Valence | 실험자 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 25.Speaker
-(⁍=0.8, ⁍=0.9) | 0.716 | 0.686 | 0.700 | 0.755 | 0.796 | 홍성래 |
-| 23.Speaker
-(⁍=0.9, ⁍=0.9) | 0.621 | 0.594 | 0.607 | 0.623 | 0.785 | 홍성래 |
-| 19.Speaker
-(⁍=0.99, ⁍=0.9) | 0.721 | 0.691 | 0.705 | 0.612 | 0.829 | 이솔 |
-| 20.Speaker
-(⁍=0.999, ⁍=0.9) | 0.670 | 0.643 | 0.656 | 0.730 | 0.869 | 이솔 |
+| Model | Precision | Recall | F1_emotion | Arousal | Valence |
+| --- | --- | --- | --- | --- | --- |
+| Speaker(![](http://latex.codecogs.com/gif.latex?\beta=0.8)) | 0.716 | 0.686 | 0.700 | 0.755 | 0.796 |
+| Speaker (![](http://latex.codecogs.com/gif.latex?\beta=0.9)) | 0.621 | 0.594 | 0.607 | 0.623 | 0.785 |
+| Speaker(![](http://latex.codecogs.com/gif.latex?\beta=0.99)) | 0.721 | 0.691 | 0.705 | 0.612 | 0.829 |
+| Speaker(![](http://latex.codecogs.com/gif.latex?\beta=0.999)) | 0.670 | 0.643 | 0.656 | 0.730 | 0.869 |
 
 | Model | Precision | Recall | F1_emotion | Arousal | Valence | 실험자 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -184,7 +179,7 @@ python main.py --test_only
 (⁍=0.999, ⁍=0.9) | 0.698 | 0.669 | 0.682 | 0.741 | 0.868 | 홍성래 |
 
 
-#### 3.6 $$lambda$$ 에 따른 baseline ablation study
+### 3.6 $$lambda$$ 에 따른 baseline ablation study
 
 | Model | Precision | Recall | F1_emotion | Arousal | Valence | 실험자 |
 | --- | --- | --- | --- | --- | --- | --- |
