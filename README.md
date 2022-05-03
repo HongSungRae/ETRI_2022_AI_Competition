@@ -29,12 +29,13 @@
 - 순서와 지시를 __그대로__ 따라 사용해주세요
 
 ### 2.1 환경설정
+0. 여러분의 PC나 서버에 GPU가 있고 cuda setting이 되어있어야합니다.
 1. 여러분의 환경에 이 repo를 clone합니다 : ```git clone <this_repo>```
 2. requirements libraries를 확인합니다 : ```pip install -r requirements.txt```
 
 ### 2.2 데이터셋 다운로드
-1. [KEMDy19]() dataset을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data' 폴더에 넣으세요
-2. [Google_Drive]()에서 미리 가공된 sentence embedding과 annotation을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요
+1. [KEMDy19](https://nanum.etri.re.kr/share/kjnoh/KEMDy19?lang=ko_KR) dataset을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data' 폴더에 넣으세요. 다운로드 권한을 신청해야할 수도 있습니다.
+2. [Google_Drive]()에서 미리 가공된 sentence embedding과 annotation을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요.
 
 - 최종적으로 structure가 이렇게 되어있다면 모든 준비가 끝났습니다!
 ```
@@ -64,10 +65,53 @@
 ```
 
 ### 2.3 학습+추론
+#### Speaker 감정 추론 baseline
 ```
+python main.py --SorL speaker
+               --test_split [13,14,15,16]
+               --lam 0.66
+               --epochs 100
 ```
 
+#### Listener 감정 추론 baseline
+```
+python main.py --SorL listener
+               --test_split [13,14,15,16]
+               --lam 0.66
+               --epochs 100
+```
+- argparser parameter 소개
+    - gup_id : 사용할 GPU의 id
+    - save_path : 실험결과가 저장될 경로 -> 만지지 마시오
+    - backbone : Backbone network -> 만지지 마시오
+    - text_dim : sentence embedding의 dimension -> 만지지 마시오
+    - bidirectional : 양방향 RNN옵션. Default는 False. True로 만드려면 ```--bidirectional```
+    - ws : sliceing window size -> 만지지 마시오
+    - SorL : 추론할 감정. ```speaker``` 또는 ```listener```
+    - sr : audio의 sampling rate -> 만지지 마시오
+    - test_split : 20개의 session중에서 test split으로 나눌 session. 예시) ```[1,8,9,13]```
+    - batch_size : Batch size ```64```
+    - optim : optimizer. choices=sgd,adam,adagrad
+    - loss : Default는 ```normal```로 MSE와 KLDiv Loss를 사용합니다. ```cbloss```로 설정하면 Class Balanced Loss가 사용됩니다.
+    - lam : Default는 ```0.66```으로 감정을 맞추는 가중치(lam)와 각성도,긍부정도를 맞추는 가중치(1-lam) 사이의 비율을 결정합니다.
+    - beta : Default는 ```0.99```. CBLoss의 가중치 beta를 결정합니다.
+    - lr_decay : lr decay term
+    - lr : learning rate
+    - weight_decay : weight decay term(L2 regularization)
+    - epochs : total training epochs
+
+
+
 ### 2.4 추론만 하기
+```
+python main.py --test_only
+               --./exp에있으면서_test할_모델이_있는_폴더_이름
+```
+예를 들어서 ```exp/lstm_speaker_adam_8/model.pth```가 있었고 이 모델을 테스트만 하고싶다면 아래와같이 명령하세요.
+```
+python main.py --test_only
+               --lstm_speaker_adam_8
+```
 
 ## 3. 성능
 
