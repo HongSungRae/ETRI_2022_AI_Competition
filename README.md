@@ -167,41 +167,29 @@ python main.py --test_only
 | Speaker(![](http://latex.codecogs.com/gif.latex?\beta=0.99)) | 0.721 | 0.691 | 0.705 | 0.612 | 0.829 |
 | Speaker(![](http://latex.codecogs.com/gif.latex?\beta=0.999)) | 0.670 | 0.643 | 0.656 | 0.730 | 0.869 |
 
-| Model | Precision | Recall | F1_emotion | Arousal | Valence | 실험자 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 26.Linstener
-(⁍=0.8, ⁍=0.9) | 0.727 | 0.697 | 0.711 | 0.701 | 0.857 | 홍성래 |
-| 24.Listener
-(⁍=0.9, ⁍=0.9) | 0.745 | 0.715 | 0.729 | 0.723 | 0.877 | 홍성래 |
-| 21.Listener
-(⁍=0.99, ⁍=0.9) | 0.711 | 0.681 | 0.695 | 0.725 | 0.854 | 홍성래 |
-| 22.Listener
-(⁍=0.999, ⁍=0.9) | 0.698 | 0.669 | 0.682 | 0.741 | 0.868 | 홍성래 |
+| Model | Precision | Recall | F1_emotion | Arousal | Valence |
+| --- | --- | --- | --- | --- | --- |
+| Linstener(![](http://latex.codecogs.com/gif.latex?\beta=0.8)) | 0.727 | 0.697 | 0.711 | 0.701 | 0.857 |
+| Listener(![](http://latex.codecogs.com/gif.latex?\beta=0.9)) | 0.745 | 0.715 | 0.729 | 0.723 | 0.877 |
+| Listener(![](http://latex.codecogs.com/gif.latex?\beta=0.99))| 0.711 | 0.681 | 0.695 | 0.725 | 0.854 |
+| Listener(![](http://latex.codecogs.com/gif.latex?\beta=0.999)) | 0.698 | 0.669 | 0.682 | 0.741 | 0.868 |
 
 
-### 3.6 $$lambda$$ 에 따른 baseline ablation study
+### 3.6 (![](http://latex.codecogs.com/gif.latex?\lambda)) 에 따른 baseline ablation study
 
-| Model | Precision | Recall | F1_emotion | Arousal | Valence | 실험자 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 27.Speaker
-(⁍=0.5)(1:1:1) | 0.738 | 0.709 | 0.722 | 0.780 | 0.824 | 홍성래 |
-| 4.Speaker
-(⁍=0.66)(2:1:1) | 0.748 | 0.719 | 0.733 | 0.745 | 0.860 | 김태미 |
-| 28.Speaker
-(⁍=0.75)(3:1:1) | 0.759 | 0.731 | 0.744 | 0.791 | 0.869 | 홍성래 |
-| 29.Speaker
-(⁍=0.8)(4:1:1) | 0.696 | 0.670 | 0.682 | 0.783 | 0.803 | 홍성래 |
+| Model | Precision | Recall | F1_emotion | Arousal | Valence |
+| --- | --- | --- | --- | --- | --- |
+| Speaker(![](http://latex.codecogs.com/gif.latex?\lambda=0.5))(1:1:1) | 0.738 | 0.709 | 0.722 | 0.780 | 0.824 |
+| Speaker(![](http://latex.codecogs.com/gif.latex?\lambda=0.66))(2:1:1) | 0.748 | 0.719 | 0.733 | 0.745 | 0.860 |
+| Speaker(![](http://latex.codecogs.com/gif.latex?\lambda=0.75))(3:1:1) | 0.759 | 0.731 | 0.744 | 0.791 | 0.869 |
+| Speaker(![](http://latex.codecogs.com/gif.latex?\lambda=0.8))(4:1:1) | 0.696 | 0.670 | 0.682 | 0.783 | 0.803 |
 
-| Model | Precision | Recall | F1_emotion | Arousal | Valence | 실험자 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 30.Listener
-(⁍=0.5)(1:1:1) | 0.712 | 0.683 | 0.696 | 0.746 | 0.880 | 홍성래 |
-| 9.Listener
-(⁍=0.66)(2:1:1) | 0.744 | 0.713 | 0.728 | 0.756 | 0.865 | 이솔 |
-| 31.Listener
-(⁍=0.75)(3:1:1) | 0.740 | 0.710 | 0.724 | 0.712 | 0.870 | 홍성래 |
-| 32.Listener
-(⁍=0.8)(4:1:1) | 0.709 | 0.680 | 0.694 | 0.688 | 0.862 | 홍성래 |
+| Model | Precision | Recall | F1_emotion | Arousal | Valence |
+| --- | --- | --- | --- | --- | --- |
+| Listener(![](http://latex.codecogs.com/gif.latex?\lambda=0.5))(1:1:1) | 0.712 | 0.683 | 0.696 | 0.746 | 0.880 |
+| Listener(![](http://latex.codecogs.com/gif.latex?\lambda=0.66))(2:1:1) | 0.744 | 0.713 | 0.728 | 0.756 | 0.865 |
+| Listener(![](http://latex.codecogs.com/gif.latex?\lambda=0.75))(3:1:1) | 0.740 | 0.710 | 0.724 | 0.712 | 0.870 |
+| Listener(![](http://latex.codecogs.com/gif.latex?\lambda=0.8))(4:1:1) | 0.709 | 0.680 | 0.694 | 0.688 | 0.862 |
 
 
 ## Contact
