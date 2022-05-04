@@ -28,25 +28,18 @@
 
 #### Class Balanced Loss[2]
 - Class imbalance한 KEMDy19의 특성에 맞는 Loss 도입
-</br>
+
 ![](http://latex.codecogs.com/gif.latex?\mathrm{CB}(p,y)=\frac{1}{E_{n_{y}}}\mathcal{L}(p,y)=\frac{1-\beta}{1-\beta^{n_{y}}}\mathcal{L}(p,y))
 
 ### 1.3 코드 설명
 
 ```constants.py``` : Hyper parameters
-
 ```dataset.py``` : torch.utils.data Dataset class를 상속한 KEMDy19 dataset class
-</br>
 ```loss.py``` : Emotion classification과 Valence, Arousal MSE Loss를 정의하는 class. CBLoss를 정의하는 class
-</br>
 ```main.py``` : main 함수
-</br>
 ```metric.py``` : f1, recall, precision, ccc
-</br>
 ```model.py``` : 우리의 모델
-</br>
 ```utils.py``` : 작동에 필요한 함수를 정의
-</br>
 ```preprocessing.ipynb``` : 데이터셋 전처리, split등 전처리에 사용된 코드
 
 
