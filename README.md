@@ -20,10 +20,35 @@
 ![model_architecture](https://erratic-tailor-f01.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F02e2f67e-59e5-4051-8543-b16a004e4a64%2FUntitled.png?table=block&id=6c9bb92c-881d-49d7-96a7-1ed675230d13&spaceId=ad2a71b5-1b0d-4734-bbc4-60a807442e5d&width=2000&userId=&cache=v2)
 
 #### Audio Spectrogram
+![](https://miro.medium.com/max/1200/1*V2mgZ7y0ngd3q4DZ01xkEQ.png)
+- Audio를 sr마다 sampling하여 spectrogram으로 표현
 
 #### Korean Sentence Embedding[1]
+- 성우들의 한국어 script를 embedding하기 위해 KoBert기반의 sentence embedding 
 
 #### Class Balanced Loss[2]
+- Class imbalance한 KEMDy19의 특성에 맞는 Loss 도입
+</br>
+![](http://latex.codecogs.com/gif.latex?\mathrm{CB}(p,y)=\frac{1}{E_{n_{y}}}\mathcal{L}(p,y)=\frac{1-\beta}{1-\beta^{n_{y}}}\mathcal{L}(p,y))
+
+### 1.3 코드 설명
+</br>
+```constants.py``` : Hyper parameters
+</br>
+```dataset.py``` : torch.utils.data Dataset class를 상속한 KEMDy19 dataset class
+</br>
+```loss.py``` : Emotion classification과 Valence, Arousal MSE Loss를 정의하는 class. CBLoss를 정의하는 class
+</br>
+```main.py``` : main 함수
+</br>
+```metric.py``` : f1, recall, precision, ccc
+</br>
+```model.py``` : 우리의 모델
+</br>
+```utils.py``` : 작동에 필요한 함수를 정의
+</br>
+```preprocessing.ipynb``` : 데이터셋 전처리, split등 전처리에 사용된 코드
+
 
 ## 2. How To Use?
 - 이 코드를 사용하는 방법을 다룹니다
@@ -36,7 +61,7 @@
 
 ### 2.2 데이터셋 다운로드
 1. [KEMDy19](https://nanum.etri.re.kr/share/kjnoh/KEMDy19?lang=ko_KR) dataset을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data' 폴더에 넣으세요. 다운로드 권한을 신청해야할 수도 있습니다.
-2. [Google_Drive]()에서 미리 가공된 sentence embedding과 annotation을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요.
+2. [Google_Drive]()에서 미리 가공된 데이터들을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요.
 
 - 최종적으로 structure가 이렇게 되어있다면 모든 준비가 끝났습니다!
 ```
@@ -194,6 +219,11 @@ python main.py --test_only
 
 
 ## License & citiation
+### License
+MIT License 하에 공개되었습니다. 모델 및 코드를 사용시 첨부된 ```LICENSE```를 참고하세요.
+### Citiation
+Under Review 이므로 이 git을 참조부탁드립니다.
+
 
 ## Contact
 - SungRae Hong : sun.hong@kaist.ac.kr
