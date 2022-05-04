@@ -32,9 +32,9 @@
 ![](http://latex.codecogs.com/gif.latex?\mathrm{CB}(p,y)=\frac{1}{E_{n_{y}}}\mathcal{L}(p,y)=\frac{1-\beta}{1-\beta^{n_{y}}}\mathcal{L}(p,y))
 
 ### 1.3 코드 설명
-</br>
+
 ```constants.py``` : Hyper parameters
-</br>
+
 ```dataset.py``` : torch.utils.data Dataset class를 상속한 KEMDy19 dataset class
 </br>
 ```loss.py``` : Emotion classification과 Valence, Arousal MSE Loss를 정의하는 class. CBLoss를 정의하는 class
