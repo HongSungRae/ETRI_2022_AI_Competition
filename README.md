@@ -34,12 +34,19 @@
 ### 1.3 코드 설명
 
 ```constants.py``` : Hyper parameters
+
 ```dataset.py``` : torch.utils.data Dataset class를 상속한 KEMDy19 dataset class
+
 ```loss.py``` : Emotion classification과 Valence, Arousal MSE Loss를 정의하는 class. CBLoss를 정의하는 class
+
 ```main.py``` : main 함수
+
 ```metric.py``` : f1, recall, precision, ccc
+
 ```model.py``` : 우리의 모델
+
 ```utils.py``` : 작동에 필요한 함수를 정의
+
 ```preprocessing.ipynb``` : 데이터셋 전처리, split등 전처리에 사용된 코드
 
 
