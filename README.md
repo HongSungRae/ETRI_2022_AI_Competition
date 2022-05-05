@@ -2,7 +2,7 @@
 > 본 대회는 한국전자통신연구원(ETRI)이 주최하고 과학기술정보통신부와 국가과학기술연구회(NST)가 후원합니다
 
 ## Abstract
-
+> 기계와 인간의 상호작용을 위해 인간의 감정 인식을 자동화하고 이를 활용해 인간에게 보다 친숙한 Interaction을 만들고자하는 시도가 이루어지고 있다. 하지만 인간 감정 특유의 비선형적이고 변칙적인 성질로 인해 기계가 학습하고 예측하기 어려운 도전적인 과제로 남아있다. 본 논문은 인간의 감정이 다양한 형식의 신호로부터 확립되고 맥락을 가지고 변화한다는 가정 하에 Textual, Non-Textual Information를 Single-Path로 통합하여 비선형적 특징을 학습하는 감성 분석 방법론을 제안한다. 비교 실험의 결과로 Speaker의 Textual, Audio의 Mixture Model의 성능이 각각의 Textual, Audio을 사용한 Model의 F1 Score보다 높음을 보였다. 또한 Mixture Data를 사용한 Model은 기존의 KEMDy19 데이터셋의 최고성능을 상회했다.
 
 ## 1. 소개
 ### 1.1 대회 소개
@@ -17,7 +17,7 @@
 
 ### 1.2 Methodolgy
 #### Model Architecture
-![model_architecture](https://erratic-tailor-f01.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F02e2f67e-59e5-4051-8543-b16a004e4a64%2FUntitled.png?table=block&id=6c9bb92c-881d-49d7-96a7-1ed675230d13&spaceId=ad2a71b5-1b0d-4734-bbc4-60a807442e5d&width=2000&userId=&cache=v2)
+![model_architecture](https://erratic-tailor-f01.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fae887f24-83be-45c7-ab15-0918127a45e7%2FUntitled.png?table=block&id=f869ff0f-7aa4-49bd-817c-4e4c0d2b68a3&spaceId=ad2a71b5-1b0d-4734-bbc4-60a807442e5d&width=2000&userId=&cache=v2)
 
 #### Audio Spectrogram
 ![](https://miro.medium.com/max/1200/1*V2mgZ7y0ngd3q4DZ01xkEQ.png)
@@ -49,6 +49,19 @@
 
 ```preprocessing.ipynb``` : 데이터셋 전처리, split등 전처리에 사용된 코드
 
+### 1.4 데이터 전처리
+- 우리가 수행한 데이터 전처리 과정을 제시합니다.
+#### 텍스트
+우리는 Multimodal dataset을 활용하기위해 함께 첨부된 txt file을 전처리했습니다.
+대화에서 "\c" "\n"과같은 문자부호 특수문자들을 모두 제거하고 KoBert를 활용해 text를 embedding을 모두 출력하고 이 embedding들의 평균을 문장의 embedding으로 인정했습니다.
+또한 충분히 텍스트 정보를 잘 포함하는 embedding dimension을 768로 설정하였습니다.
+이러한 처지의 결과는 <2.2 데이터셋 다운로드>의 구글드라이브 링크에서 ```embedding_768.npy```에서 확인 가능합니다.
+</br>
+
+#### Annotation
+20개의 Session에 약 10개씩의 대화상황이 있습니다. 또한 각 Session에 맞는 csv annotation file이 KEMDy19에 기본적으로 포함되어 있습니다.
+우리는 각 대화상황마다 흩어진 annotation들을 하나로 묶은 ```annotation.csv file```을 만들었습니다. 이것은 아래 <2.2 데이터셋 다운로드>에서 확인하실 수 있습니다.
+각 대화마다 청자 또는 화자의 감정이 label되어있으므로 이것을 speaker와 listener 2개의 csv file(```df_listener.csv```,```df_speaker.csv```)로 나누었습니다. 역시 같은 섹션에서 결과를 확인 가능합니다.
 
 ## 2. How To Use?
 - 이 코드를 사용하는 방법을 다룹니다
@@ -61,7 +74,7 @@
 
 ### 2.2 데이터셋 다운로드
 1. [KEMDy19](https://nanum.etri.re.kr/share/kjnoh/KEMDy19?lang=ko_KR) dataset을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data' 폴더에 넣으세요. 다운로드 권한을 신청해야할 수도 있습니다.
-2. [Google_Drive]()에서 미리 가공된 데이터들을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요.
+2. [Google_Drive](https://drive.google.com/drive/folders/1ShAppJQi9QEgSjOImb9HoM3k0KuvP1BK?usp=sharing)에서 미리 가공된 데이터들을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요.
 
 - 최종적으로 structure가 이렇게 되어있다면 모든 준비가 끝났습니다!
 ```
@@ -95,16 +108,12 @@
 #### Speaker 감정 추론 baseline
 ```
 python main.py --SorL speaker
-               --test_split [13,14,15,16]
-               --lam 0.66
                --epochs 100
 ```
 
 #### Listener 감정 추론 baseline
 ```
 python main.py --SorL listener
-               --test_split [13,14,15,16]
-               --lam 0.66
                --epochs 100
 ```
 - argparser parameter 소개
@@ -216,6 +225,13 @@ python main.py --test_only
 | Listener(![](http://latex.codecogs.com/gif.latex?\lambda=0.66))(2:1:1) | 0.744 | 0.713 | 0.728 | 0.756 | 0.865 |
 | Listener(![](http://latex.codecogs.com/gif.latex?\lambda=0.75))(3:1:1) | 0.740 | 0.710 | 0.724 | 0.712 | 0.870 |
 | Listener(![](http://latex.codecogs.com/gif.latex?\lambda=0.8))(4:1:1) | 0.709 | 0.680 | 0.694 | 0.688 | 0.862 |
+
+
+### 3.7 최고성능을 5-Folds 검증으로 확인한 최종성능
+| Model | Precision | Recall | F1_emotion | Arousal | Valence |
+| --- | --- | --- | --- | --- | --- |
+| Speaker(![](http://latex.codecogs.com/gif.latex?\lambda=0.75))(3:1:1) | 0.728 | 0.702 | 0.714 | 0.778 | 0.848 |
+| Listener(CBLoss,![](http://latex.codecogs.com/gif.latex?\lambda=0.9),![](http://latex.codecogs.com/gif.latex?\beta=0.9)) | 0.694 | 0.668 | 0.680 | 0.711 | 0.833 |
 
 
 ## License & citiation
