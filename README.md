@@ -78,30 +78,30 @@
 
 - 최종적으로 structure가 이렇게 되어있다면 모든 준비가 끝났습니다!
 ```
-<2022-휴먼이행-인공지능-경진대회>
-                            ├ <data>
-                                └ <KEMDy19>
-                                    ├ <annotation>
-                                    ├ <ECG>
-                                    ├ <EDA>
-                                    ├ <TEMP>
-                                    ├ <wav>
-                                    ├ annotation.csv
-                                    ├ df_listener.csv
-                                    ├ df_speaker.csv
-                                    └ embedding_768.npy
-                            ├ constants.py
-                            ├ dataset.py
-                            ├ loss.py
-                            ├ main.py
-                            ├ metric.py
-                            ├ model.py
-                            ├ utils.py
-                            ├ EDA.ipynb
-                            ├ prerprocessing.ipynb
-                            ├ LICENSE
-                            ├ requirements.txt
-                            └ README.md                           
+<2022-ETRI-AI-Competition>
+                    ├ <data>
+                        └ <KEMDy19>
+                            ├ <annotation>
+                            ├ <ECG>
+                            ├ <EDA>
+                            ├ <TEMP>
+                            ├ <wav>
+                            ├ annotation.csv
+                            ├ df_listener.csv
+                            ├ df_speaker.csv
+                            └ embedding_768.npy
+                    ├ constants.py
+                    ├ dataset.py
+                    ├ loss.py
+                    ├ main.py
+                    ├ metric.py
+                    ├ model.py
+                    ├ utils.py
+                    ├ EDA.ipynb
+                    ├ prerprocessing.ipynb
+                    ├ LICENSE
+                    ├ requirements.txt
+                    └ README.md                           
 ```
 
 ### 2.3 학습+추론
