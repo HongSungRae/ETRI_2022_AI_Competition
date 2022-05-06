@@ -60,7 +60,7 @@
 
 #### Annotation
 20개의 Session에 약 10개씩의 대화상황이 있습니다. 또한 각 Session에 맞는 csv annotation file이 KEMDy19에 기본적으로 포함되어 있습니다.
-우리는 각 대화상황마다 흩어진 annotation들을 하나로 묶은 ```annotation.csv file```을 만들었습니다. 이것은 아래 <2.2 데이터셋 다운로드>에서 확인하실 수 있습니다.
+우리는 각 대화상황마다 흩어진 annotation들을 하나로 묶은 ```annotation.csv``` file을 만들었습니다. 이것은 아래 <2.2 데이터셋 다운로드>에서 확인하실 수 있습니다.
 각 대화마다 청자 또는 화자의 감정이 label되어있으므로 이것을 speaker와 listener 2개의 csv file(```df_listener.csv```,```df_speaker.csv```)로 나누었습니다. 역시 같은 섹션에서 결과를 확인 가능합니다.
 
 ## 2. How To Use?
