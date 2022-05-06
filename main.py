@@ -125,6 +125,7 @@ def test(model, test_loader, save_path):
     with torch.no_grad():
         for i, (audio, text, emotion, arousal, valence) in enumerate(test_loader):
             audio, text, emotion, arousal, valence = audio.cuda(), text.cuda(), emotion.cuda(), arousal.cuda(), valence.cuda()
+            print(audio.shape)
             emotion_pred, arousal_pred, valence_pred = model(audio, text)
             # CCC
             arousal_gt_list += torch.reshape(arousal,(-1,)).tolist()
@@ -174,7 +175,7 @@ def test(model, test_loader, save_path):
     try:
         f = open('./exp/'+args.test_path+'/confusion.txt','w')
     except:
-        f = open('./exp/'+args.backbone+'_'+args.SorL+'_'+args.optim+'_'+str(args.ws)+'/confusion.txt','w')
+        f = open(save_path+'/confusion.txt','w')
     f.write(str(total_confusion_matrix))
     print(result)
     print(f'Confusion Matrix : \n{total_confusion_matrix}')
@@ -185,6 +186,15 @@ def test(model, test_loader, save_path):
 def main():
     # define model
     os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu_id
+
+    # wav audio file preprocessing
+    if not os.path.exists('./audio'):
+        print(' Audio 전처리부터 실행합니다... ')
+        os.makedirs('./audio')
+        for audio in glob('./data/KEMDy19/wav/*/*/*.wav'):
+            new_audio = audio.split('\\')[-1]
+            shutil.move(audio, f'./audio/{new_audio}')
+
     
     # Train and Test
     if args.test_only: # Test
@@ -208,6 +218,7 @@ def main():
                                       SorL=configuration['SorL'],
                                       ws=configuration['ws'],
                                       text_dim=configuration['text_dim'])
+        
         test_loader = DataLoader(test_dataset,batch_size=args.batch_size,num_workers=1,shuffle=False,drop_last=False)
         test(model, test_loader, save_path)
         
@@ -220,7 +231,7 @@ def main():
                                 bidirectional=args.bidirectional).cuda()
 
         # Save path
-        save_path = './exp/'+args.backbone+'_'+args.SorL+'_'+args.optim+'_'+str(args.ws)
+        save_path = './exp/'+args.backbone+'_'+args.SorL+'_'+args.optim+'_'+str(args.ws)+'_'+str(time.time()).split('.')[-1]
         if not os.path.exists(save_path):
             os.makedirs(save_path)
 
