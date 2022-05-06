@@ -6,6 +6,11 @@ import sounddevice as sd
 import json
 import torch
 import torch
+import glob
+import shutil
+import os
+import sys
+
 
 # local
 
@@ -14,6 +19,16 @@ import torch
 ################
 ## Audio 관련 ##
 ################
+def get_audio():
+    if not os.path.exists('./audio'):
+        os.makedirs('./audio')
+    else:
+        sys.exit('이미 audio dir가 존재합니다. audio폴더를 삭제후에 다시 진행하세요')
+    for audio in glob('./data/KEMDy19/wav/*/*/*.wav'):
+        new_audio = audio.split('\\')[-1]
+        shutil.move(audio, f'./audio/{new_audio}')
+
+
 
 def listen_json(path,sr=22050):
     with open(path, 'r') as f:
