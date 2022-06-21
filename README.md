@@ -58,6 +58,9 @@
 이러한 처지의 결과는 <2.2 데이터셋 다운로드>의 구글드라이브 링크에서 ```embedding_768.npy```에서 확인 가능합니다.
 </br>
 
+#### 오디오
+오디오를 참조하기 쉽게 한 폴더(```./audio```)에 모았습니다. 각각의 오디오는 고유한 이름을 가지고 있으므로 한 폴더에서 참조해도 문제가 없습니다.
+
 #### Annotation
 20개의 Session에 약 10개씩의 대화상황이 있습니다. 또한 각 Session에 맞는 csv annotation file이 KEMDy19에 기본적으로 포함되어 있습니다.
 우리는 각 대화상황마다 흩어진 annotation들을 하나로 묶은 ```annotation.csv``` file을 만들었습니다. 이것은 아래 <2.2 데이터셋 다운로드>에서 확인하실 수 있습니다.
@@ -73,8 +76,9 @@
 2. requirements libraries를 확인합니다 : ```pip install -r requirements.txt```
 
 ### 2.2 데이터셋 다운로드
-1. [KEMDy19](https://nanum.etri.re.kr/share/kjnoh/KEMDy19?lang=ko_KR) dataset을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data' 폴더에 넣으세요. 다운로드 권한을 신청해야할 수도 있습니다.
+1. [KEMDy19](https://nanum.etri.re.kr/share/kjnoh/KEMDy19?lang=ko_KR) dataset을 다운로드하여 'ETRI_2022_AI_Competition/data' 폴더에 넣으세요. 다운로드 권한을 신청해야할 수도 있습니다.
 2. [Google_Drive](https://drive.google.com/drive/folders/1ShAppJQi9QEgSjOImb9HoM3k0KuvP1BK?usp=sharing)에서 미리 가공된 데이터들을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요.
+3. [Google Drive](naver.com)에서 ```audio.zip```을 다운로드하여 압축을 풀어서 로컬인 ```ETRI_2022_AI_Competition/``` 폴더에 넣으세요. 
 
 - 최종적으로 structure가 이렇게 되어있다면 모든 준비가 끝났습니다!
 ```
@@ -90,6 +94,7 @@
                             ├ df_listener.csv
                             ├ df_speaker.csv
                             └ embedding_768.npy
+                    ├ <audio>    
                     ├ constants.py
                     ├ dataset.py
                     ├ loss.py
