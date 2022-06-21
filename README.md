@@ -78,7 +78,7 @@
 ### 2.2 데이터셋 다운로드
 1. [KEMDy19](https://nanum.etri.re.kr/share/kjnoh/KEMDy19?lang=ko_KR) dataset을 다운로드하여 'ETRI_2022_AI_Competition/data' 폴더에 넣으세요. 다운로드 권한을 신청해야할 수도 있습니다.
 2. [Google_Drive](https://drive.google.com/drive/folders/1ShAppJQi9QEgSjOImb9HoM3k0KuvP1BK?usp=sharing)에서 미리 가공된 데이터들을 다운로드하여 '2022-휴먼이해-인공지능-경진대회/data/KEMDy19' 폴더에 넣으세요.
-3. [Google Drive](naver.com)에서 ```audio.zip```을 다운로드하여 압축을 풀어서 로컬인 ```ETRI_2022_AI_Competition/``` 폴더에 넣으세요. 
+3. [Google_Drive](https://drive.google.com/file/d/1H8lgjJE6n_CMjiU4TgmU-tyWcCihVMpg/view?usp=sharing)에서 ```audio.zip```을 다운로드하여 압축을 풀어서 로컬인 ```ETRI_2022_AI_Competition/``` 폴더에 넣으세요. 
 
 - 최종적으로 structure가 이렇게 되어있다면 모든 준비가 끝났습니다!
 ```
@@ -110,6 +110,8 @@
 ```
 
 ### 2.3 학습+추론
+‼️ 여러분의 GPU에 따라서 ```gpu_id```(이름이 다르거나 없어서 오류)나 ```batch_size```(memory overflow)을 예시와 다르게 설정해야 할 수도 있습니다. 오류가 뜬다면 아래 "argparser parameter 소개"를 보면서 여러분의 환경에 맞게 조정해주세요.
+
 #### Speaker 감정 추론 baseline
 ```
 python main.py --SorL speaker
