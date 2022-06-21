@@ -82,7 +82,7 @@
 
 - 최종적으로 structure가 이렇게 되어있다면 모든 준비가 끝났습니다!
 ```
-<2022-ETRI-AI-Competition>
+<2022_ETRI_AI_Competition>
                     ├ <data>
                         └ <KEMDy19>
                             ├ <annotation>
