@@ -125,6 +125,7 @@ def test(model, test_loader, save_path):
     with torch.no_grad():
         for i, (audio, text, emotion, arousal, valence) in enumerate(test_loader):
             audio, text, emotion, arousal, valence = audio.cuda(), text.cuda(), emotion.cuda(), arousal.cuda(), valence.cuda()
+            print(audio.shape)
             emotion_pred, arousal_pred, valence_pred = model(audio, text)
             # CCC
             arousal_gt_list += torch.reshape(arousal,(-1,)).tolist()
@@ -155,12 +156,12 @@ def test(model, test_loader, save_path):
         ccc_valence = concordance_correlation_coefficient(valence_pred_list, valence_gt_list)
 
         result = {
-                  'Precision' : f'{precision_av.avg:3f}+-{precision_av.std:.3f}',
-                  'Recall' : f'{recall_av.avg:3f}+-{recall_av.std:.3f}',
-                  'F1' : f'{f1_av.avg:3f}+-{f1_av.std:.3f}',
-                  'Precision@1' : f'{precision_at_1_av.avg:.3f}+-{precision_at_1_av.std:.3f}',
-                  'Recall@1' : f'{recall_at_1_av.avg:.3f}+-{recall_at_1_av.std:.3f}',
-                  'F1@1' : f'{f1_at_1_av.avg:.3f}+-{f1_at_1_av.std:.3f}',
+                  # 'Precision' : f'{precision_av.avg:3f}+-{precision_av.std:.3f}',
+                  # 'Recall' : f'{recall_av.avg:3f}+-{recall_av.std:.3f}',
+                  # 'F1' : f'{f1_av.avg:3f}+-{f1_av.std:.3f}',
+                  'Precision' : f'{precision_at_1_av.avg:.3f}+-{precision_at_1_av.std:.3f}',
+                  'Recall' : f'{recall_at_1_av.avg:.3f}+-{recall_at_1_av.std:.3f}',
+                  'F1' : f'{f1_at_1_av.avg:.3f}+-{f1_at_1_av.std:.3f}',
                   'Precision@2' : f'{precision_at_2_av.avg:.3f}+-{precision_at_2_av.std:.3f}',
                   'Recall@2' : f'{recall_at_2_av.avg:.3f}+-{recall_at_2_av.std:.3f}',
                   'F1@2' : f'{f1_at_2_av.avg:.3f}+-{f1_at_2_av.std:.3f}',
