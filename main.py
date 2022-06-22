@@ -125,7 +125,6 @@ def test(model, test_loader, save_path):
     with torch.no_grad():
         for i, (audio, text, emotion, arousal, valence) in enumerate(test_loader):
             audio, text, emotion, arousal, valence = audio.cuda(), text.cuda(), emotion.cuda(), arousal.cuda(), valence.cuda()
-            print(audio.shape)
             emotion_pred, arousal_pred, valence_pred = model(audio, text)
             # CCC
             arousal_gt_list += torch.reshape(arousal,(-1,)).tolist()
