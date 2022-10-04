@@ -245,7 +245,9 @@ python main.py --test_only
 ### License
 MIT License 하에 공개되었습니다. 모델 및 코드를 사용시 첨부된 ```LICENSE```를 참고하세요.
 ### Citiation
-Under Review 이므로 이 git을 참조부탁드립니다.
+```
+홍성래, 김태미, 이솔, 김종우, 이문용. "MATE : 감정 분석을 위한 오디오-텍스트 혼합 모델" 한국정보과학회 학술발표논문집 ,  (2022) : 2297-2299.
+```
 
 
 ## Contact
