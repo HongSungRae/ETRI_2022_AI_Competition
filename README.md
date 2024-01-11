@@ -241,7 +241,7 @@ python main.py --test_only
 | Listener(CBLoss,![](http://latex.codecogs.com/gif.latex?\lambda=0.9),![](http://latex.codecogs.com/gif.latex?\beta=0.9)) | 0.694 | 0.668 | 0.680 | 0.711 | 0.833 |
 
 
-## License & citiation
+## License & citation
 ### License
 MIT License 하에 공개되었습니다. 모델 및 코드를 사용시 첨부된 ```LICENSE```를 참고하세요.
 ### Citiation
